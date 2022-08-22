@@ -114,7 +114,7 @@ function App() {
             />
           </form>
         </section>
-        <Dummy numberOfErrors={getNumberOfErrors} />
+        <Dummy numberOfErrors={getNumberOfErrors()} />
       </main>
     </div>
   );
