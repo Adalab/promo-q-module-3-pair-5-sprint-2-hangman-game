@@ -1,6 +1,8 @@
+import '../styles/Dummy.scss';
+
 function Dummy(props) {
   return (
-    <section className={`dummy error-${props.numberOfErrors}`}>
+    <section className={`dummy error-${props.numberOfErrors()}`}>
       <span className="error-13 eye"></span>
       <span className="error-12 eye"></span>
       <span className="error-11 line"></span>
