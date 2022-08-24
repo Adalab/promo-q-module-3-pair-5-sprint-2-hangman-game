@@ -5,7 +5,15 @@ function Form(props) {
     ev.preventDefault();
   };
 
-  const changeLetter = () => {};
+  const handleKeyDown = (ev) => {
+    // Sabrías decir para qué es esta línea
+    ev.target.setSelectionRange(0, 1);
+  };
+
+  const changeLetter = (ev) => {
+    props.handleChange(ev.target.value);
+  };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label className="title" htmlFor="last-letter">
@@ -21,7 +29,7 @@ function Form(props) {
         id="last-letter"
         value={props.lastLetter}
         onKeyDown={handleKeyDown}
-        onChange={handleChange}
+        onChange={changeLetter}
       />
     </form>
   );

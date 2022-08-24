@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import Dummy from './Dummy';
 import SolutionLetters from './SolutionLetters';
 import ErrorLetters from './ErrorLetters';
 import Form from './Form';
+import Footer from './Footer';
 
 // api
 import getWordFromApi from '../services/api';
@@ -23,15 +25,12 @@ function App() {
 
   // events
 
-  // const handleKeyDown = (ev) => {
-  //   // Sabrías decir para qué es esta línea
-  //   ev.target.setSelectionRange(0, 1);
-  // };
-
-  const handleChange = (ev) => {
+  const handleChange = (lastLetter) => {
     let re = /[a-zA-Z]/; //add regular pattern - lesson 3.3 exercise 2
-    if (re.test(ev.target.value)) {
-      handleLastLetter(ev.target.value);
+    if (re.test(lastLetter)) {
+      handleLastLetter(lastLetter);
+    } else {
+      setLastLetter('');
     }
   };
 
@@ -63,6 +62,7 @@ function App() {
         </section>
         <Dummy numberOfErrors={getNumberOfErrors} />
       </main>
+      <Footer />
     </div>
   );
 }
