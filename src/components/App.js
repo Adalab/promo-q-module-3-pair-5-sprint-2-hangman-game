@@ -6,6 +6,8 @@ import SolutionLetters from './SolutionLetters';
 import ErrorLetters from './ErrorLetters';
 import Form from './Form';
 import Footer from './Footer';
+import Instructions from './Instructions';
+import Options from './Options';
 
 // api
 import getWordFromApi from '../services/api';
@@ -54,14 +56,22 @@ function App() {
   return (
     <div className="page">
       <Header />
+
       <main className="main">
         <section>
-          <SolutionLetters word={word} userLetters={userLetters} />
           <ErrorLetters word={word} userLetters={userLetters} />
           <Form lastLetter={lastLetter} handleChange={handleChange} />
         </section>
         <Dummy numberOfErrors={getNumberOfErrors} />
+        <Routes>
+          <Route
+            path="/"
+            element={<SolutionLetters word={word} userLetters={userLetters} />}
+          />
+          <Route path="/instructions" element={<Instructions />} />
+        </Routes>
       </main>
+
       <Footer />
     </div>
   );
