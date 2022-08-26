@@ -1,10 +1,6 @@
-import Header from './Header';
-
 function Instructions() {
   return (
     <>
-      <Header />
-
       <section class="instructions">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
